@@ -6,7 +6,7 @@ resource "aws_instance" "example" {
   key_name = "terraform-keypair"
   tags = {
     Name = "demo-ansible-instance"
-    Purpose = "Terraform Ansible Connection test"
+    Purpose = "Terraform Ansible Connection test123"
   }
   connection {
     user = "ubuntu"
