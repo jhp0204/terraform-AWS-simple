@@ -7,6 +7,7 @@ resource "aws_instance" "example" {
   tags = {
     Name = "demo-ansible-instance"
     Purpose = "Terraform Enterprise test"
+    inte = "infracost"
   }
 #   connection {
 #     user = "ubuntu"
