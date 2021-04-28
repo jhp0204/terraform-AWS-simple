@@ -16,6 +16,7 @@ resource "aws_instance" "example" {
      private_key = file(var.public_key_path) #default= "~/.ssh/id_dsa.pub" 
      ## private_key 부분 현재 Error 발생
      timeout     = "3m"
+     host = ${aws_instance.example.public_ip}
    }
   
    provisioner "remote-exec" {
