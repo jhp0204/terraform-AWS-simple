@@ -9,14 +9,14 @@ resource "aws_instance" "example" {
     Purpose = "Terraform Enterprise test"
     inte = "infracost"
   }
-#   connection {
-#     user = "ubuntu"
-#     type = "ssh"
-#     ## Connection 부분 현재 hosts argument 부재로 인한 Error 발생
-#     private_key = file("~/.ssh/authorized_keys") # 해당 부분 수정이 필요한지 check 실제 폴더에 있는 파일은 authorized_keys이지만, pem파일명은 terraform-keypair.pem 이다.
-#     ## private_key 부분 현재 Error 발생
-#     timeout     = "3m"
-#   }
+   connection {
+     user = "ec2-user"
+     type = "ssh"
+     ## Connection 부분 현재 hosts argument 부재로 인한 Error 발생
+     private_key = file(var.private_key_path) # 해당 부분 수정이 필요한지 check 실제 폴더에 있는 파일은 authorized_keys이지만, pem파일명은 terraform-keypair.pem 이다.
+     ## private_key 부분 현재 Error 발생
+     timeout     = "3m"
+   }
   
 #   provisioner "remote-exec" {
 #     inline = [
