@@ -10,30 +10,31 @@ resource "aws_instance" "example" {
     inte = "infracost"
   }
    connection {
-     user = "ec2-user"
+     user = var.ssh_user # default= "ec2-user"
      type = "ssh"
      ## Connection 부분 현재 hosts argument 부재로 인한 Error 발생
-     private_key = file(var.private_key_path) # 해당 부분 수정이 필요한지 check 실제 폴더에 있는 파일은 authorized_keys이지만, pem파일명은 terraform-keypair.pem 이다.
+     private_key = file(var.private_key_path) #default= "~/.ssh/id_dsa.pub" 
      ## private_key 부분 현재 Error 발생
      timeout     = "3m"
    }
   
-#   provisioner "remote-exec" {
-#     inline = [
-#       "sudo yum update",
-#       "sudo yum install -y python",
-#     ]
-#   }
-#   provisioner "local-exec" {
-#     command = <<EOF
-#       echo "[demo]" > inventory
-#       echo "${aws_instance.example.public_ip} ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/your_private_key.pem" >> inventory
-#       EOF
-#   }
-#   provisioner "local-exec" {
-#     command = <<EOF
-#       ANSIBLE_HOST_KEY_CHECKING=False \
-#       ansible-playbook -i inventory playbook.yml
-#       EOF
-#   }
+   provisioner "remote-exec" {
+     inline = [
+       "sudo yum update",
+       "sudo yum install -y python",
+     ]
+   }
+  
+   provisioner "local-exec" {
+     command = <<EOF
+       echo "[demo]" > inventory
+       echo "${aws_instance.example.public_ip} ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/id_rsa.pub" >> inventory
+       EOF
+   }
+   provisioner "local-exec" {
+     command = <<EOF
+       ANSIBLE_HOST_KEY_CHECKING=False \
+       ansible-playbook -i inventory playbook.yml
+       EOF
+   }
 }
