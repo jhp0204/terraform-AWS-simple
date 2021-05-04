@@ -3,6 +3,6 @@ resource "aws_subnet" "example" {
   availability_zone = "us-east-1"
   tags = {
     Name = "example-subnet"
-    propose = "terraform-presentation"
+    Purpose = "terraform-presentation"
   }
 }
