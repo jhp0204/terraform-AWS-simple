@@ -6,7 +6,7 @@ resource "aws_instance" "example" {
   key_name = "terraform-keypair"
   tags = {
     Name = "demo-ansible-instance"
-    Purpose = "Terraform Enterprise test"
+    Purpose = "Terraform presentation test"
   }
    connection {
      user = var.ssh_user # default= "ec2-user"
