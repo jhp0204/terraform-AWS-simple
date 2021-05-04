@@ -16,6 +16,6 @@ resource "aws_security_group" "allow_22_all" {
   }
   tags = {
     Name =  "allow_22_all"
-    propose = "terraform-presentation"
+    Purpose = "terraform-presentation"
   }
 }
