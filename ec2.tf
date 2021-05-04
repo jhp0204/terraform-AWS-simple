@@ -12,7 +12,7 @@ resource "aws_instance" "example" {
      user = var.ssh_user # default= "ec2-user"
      type = "ssh"
      ## Connection 부분 현재 hosts argument 부재로 인한 Error 발생
-     private_key = file(var.public_key_path) #default= "~/.ssh/id_dsa.pub" 
+     private_key = file(var.private_key_path) #default= "~/.ssh/id_dsa.pub" 
      ## private_key 부분 현재 Error 발생
      timeout     = "3m"
      host = aws_instance.example.public_ip
