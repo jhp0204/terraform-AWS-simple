@@ -25,16 +25,16 @@ resource "aws_instance" "example" {
      ]
    }
   
-   provisioner "local-exec" {
-     command = <<EOF
-       echo "[demo]" > inventory
-       echo "${aws_instance.example.public_ip} ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/id_rsa.pub" >> inventory
-       EOF
-   }
-   provisioner "local-exec" {
-     command = <<EOF
-       ANSIBLE_HOST_KEY_CHECKING=False \
-       ansible-playbook -i inventory playbook.yml
-       EOF
-   }
+#    provisioner "local-exec" {
+#      command = <<EOF
+#        echo "[demo]" > inventory
+#        echo "${aws_instance.example.public_ip} ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/id_rsa.pub" >> inventory
+#        EOF
+#    }
+#    provisioner "local-exec" {
+#      command = <<EOF
+#        ANSIBLE_HOST_KEY_CHECKING=False \
+#        ansible-playbook -i inventory playbook.yml
+#        EOF
+#    }
 }
