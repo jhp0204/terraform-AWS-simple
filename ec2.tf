@@ -24,7 +24,11 @@ resource "aws_instance" "example" {
        "sudo yum install -y python",
      ]
    }
-  
+    provisioner "local-exec" {
+      command = <<EOF
+        whoami > /home/ec2-user/whoami.txt
+        EOF
+    }  
 #    provisioner "local-exec" {
 #      command = <<EOF
 #        echo "[demo]" > inventory
