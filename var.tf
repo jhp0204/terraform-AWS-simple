@@ -5,5 +5,5 @@ variable "ssh_user" {
 
 variable "private_key_path" {
   description = "Path to the private SSH key you want to bake into the instance."
-  default     = "/home/ec2-user/.ssh/id_dsa"
+  default     = "/home/ec2-user/.ssh/id_rsa"
 }
