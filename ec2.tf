@@ -2,7 +2,7 @@ resource "aws_instance" "example" {
   ami           = "ami-09246ddb00c7c4fef"
   instance_type = "t2.micro"
   subnet_id = "subnet-b5a0e2f9"
-  security_groups = "sg-007be94a6a261800b"
+#  security_groups = "sg-007be94a6a261800b"
   key_name = "terraform-keypair"
   tags = {
     Name = "demo-ansible-instance"
