@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-
+#TEST AFTER TERRAFORM PROVIDER CHANGED
 #module "vpc" {
 #  source = "github.com/jhp0204/terraform-aws-simple/vpc/"
 #}
