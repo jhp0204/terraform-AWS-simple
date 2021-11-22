@@ -14,7 +14,7 @@ provider "aws" {
 
 #SSH TEST
 module "vpc" {
- source = "git@github.com:jhp0204/terraform-aws-simple/vpc.git"
+ source = "git@github.com:jhp0204/vpc-module.git"
 }
 
 # #TEST AFTER TERRAFORM PROVIDER CHANGED
