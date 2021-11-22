@@ -5,7 +5,7 @@ resource "aws_instance" "example" {
 #  security_groups = "sg-007be94a6a261800b"
   key_name = "terraform-keypair"
   tags = {
-    Name = "demo-ansible-instance"
+    Name = "EC2_CreatedByTerraform"
     Purpose = "Terraform presentation test"
   }
    connection {
